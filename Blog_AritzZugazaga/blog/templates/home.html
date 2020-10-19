@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+
+{% block content %} 
+
+<h3 class="text-white"> Ultimos Posts </h3>
+{% for post in posts %}
+    <div class="card my-1">
+           <a href="{{ post.get_absolute_url}}"> <h1> {{post.title}}</h1> </a>
+        
+        <p>  {{post.body|truncatechars:250}}  </p>
+
+        <img src= /media/{{post.image}} width="304" height="236">
+
+    </div>
+{% endfor%}
+
+{% endblock %}
+
