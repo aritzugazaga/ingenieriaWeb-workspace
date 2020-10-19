@@ -4,10 +4,11 @@
 {% block title%} Post | {{ post.title }}{%endblock%}
 
 {% block content%}
-    <h1>{{post.title}}</h1>
+    <div class="card my-1 bg-light">
+        <h1>{{post.title}}</h1>
     
-    <p> {{post.body}}</p>
+        <p> {{post.body}}</p>
     
-    <img src= /media/{{post.image}} >
-
+        <img class= "rounded" src= /media/{{post.image}} >
+    </div>
 {% endblock %}
