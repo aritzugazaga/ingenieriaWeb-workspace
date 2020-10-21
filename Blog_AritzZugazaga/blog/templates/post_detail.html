@@ -16,14 +16,14 @@
             <br></br>
             <p> {{post.body|linebreaks}}</p>
             <hr>
-            <h2>Comentarios...</h2>
+            <h2>Comentarios</h2>
             </br>
             {% if not post.comments.all %}
-                Todavía no hay ningún comentario... <a href="#">Añadir comentario</a>
+                Todavía no hay ningún comentario... 
+                <a href="#">Añadir comentario</a>
             {% else %}
-
                 <a href="">Añadir comentario</a>
-                </br></br>
+                </br>
                 {% for comment in post.comments.all %}
                     <strong>   
                         {{ comment.name }} -
