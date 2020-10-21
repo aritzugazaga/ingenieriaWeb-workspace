@@ -4,11 +4,37 @@
 {% block title%} Post | {{ post.title }}{%endblock%}
 
 {% block content%}
-    <div class="card my-1 bg-light">
-        <h1>{{post.title}}</h1>
-    
-        <p> {{post.body}}</p>
-    
-        <img class= "rounded" src= /media/{{post.image}} >
+    <br></br>
+    <div class="card bg-light">
+        <div class="card img-fluid bg-transparent">
+            <img class="card-img-top rounded img-responsive" src="/media/{{post.image}}" alt="Card image">
+            <div class="card-img-overlay">
+                <a class="text-white"> <h1> {{post.title}}</h1> </a>
+            </div>
+        </div>
+        <div class="card bg-light mx-5 border-0">
+            <br></br>
+            <p> {{post.body|linebreaks}}</p>
+            <hr>
+            <h2>Comentarios...</h2>
+            </br>
+            {% if not post.comments.all %}
+                Todavía no hay ningún comentario... <a href="#">Añadir comentario</a>
+            {% else %}
+
+                <a href="">Añadir comentario</a>
+                </br></br>
+                {% for comment in post.comments.all %}
+                    <strong>   
+                        {{ comment.name }} -
+                        {{ comment.date }}
+                    </strong> 
+                    </br>
+                    {{ comment.body }}
+                {% endfor %}
+            {% endif %}
+            <br></br>
+        </div>
     </div>
+    <br></br>
 {% endblock %}

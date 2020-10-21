@@ -6,18 +6,17 @@
 
 
 {% block content %} 
-
+</br>
 <h3 class="text-white"> Ultimos Posts </h3>
-{% for post in posts %}
-    <div class="card my-1 img-fluid bg-transparent" style="width:500px">
-        <img class="card-img-top rounded img-responsive" src="/media/{{post.image}}" alt="Card image" style="width:100%">
-        <div class="card-img-overlay">
-           <a class="text-white" href="{{ post.get_absolute_url}}"> <h2> {{post.title}}</h2> </a>
-        
-            <p class="text-white">  {{post.body|truncatechars:200}}  </p>
+<div class="d-flex flex-row flex-wrap">
+    {% for post in posts %}
+        <div class="card my-2 mx-2 img-fluid bg-transparent border-0" style="width:500px">
+            <img class="card-img-top rounded img-responsive" src="/media/{{post.image}}" alt="Card image" style="width:100%">
+            <div class="card-img-overlay">
+                <a class="text-white" href="{{ post.get_absolute_url}}"> <h3> {{post.title}}</h3> </a>
+            </div>
         </div>
-    </div>
-{% endfor%}
-
+    {% endfor%}
+</div>
 {% endblock %}
 
