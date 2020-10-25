@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+
+{% block title%} Foro {%endblock%}
+
+{% block content%}
+    <br></br>
+    <div class="card bg-light">
+        <div class="card bg-light mx-5 border-0">
+                <br>
+                <h1>Foro</h1>
+                <hr>
+                </br>
+                {% if not forumcomment.all %}
+                    Todavía no hay ningún comentario... 
+                    <br></br>
+                    <a href="{% url 'add_forum_comment' %}">Añadir comentario</a>
+                    <br></br>
+                {% else %}
+                    <a href="{% url 'add_forum_comment' %}">Añadir comentario</a>
+                    </br>
+                    {% for comment in forumcomment.all %}
+                        <strong>   
+                            {{ forumcomment.name }} -
+                            {{ forumcomment.date }}
+                    </strong> 
+            
+                    {{ forumcomment.body }}
+                    <br></br>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
