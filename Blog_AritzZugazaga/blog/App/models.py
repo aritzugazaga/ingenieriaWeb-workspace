@@ -30,3 +30,6 @@ class ForumComment(models.Model):
 
     def __str__(self):
         return self.name
+    
+    def get_absolute_url(self):
+        return reverse('forum_comment', args=[self.pk])

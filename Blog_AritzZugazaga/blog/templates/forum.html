@@ -11,7 +11,7 @@
                 <h1>Foro</h1>
                 <hr>
                 </br>
-                {% if not forumcomment.all %}
+                {% if not forum_comments %}
                     Todavía no hay ningún comentario... 
                     <br></br>
                     <a href="{% url 'add_forum_comment' %}">Añadir comentario</a>
@@ -19,13 +19,13 @@
                 {% else %}
                     <a href="{% url 'add_forum_comment' %}">Añadir comentario</a>
                     </br>
-                    {% for comment in forumcomment.all %}
+                    {% for forum_comment in forum_comments %}
                         <strong>   
-                            {{ forumcomment.name }} -
-                            {{ forumcomment.date }}
+                            {{ forum_comment.name }} -
+                            {{ forum_comment.date }}
                     </strong> 
             
-                    {{ forumcomment.body }}
+                    {{ forum_comment.body }}
                     <br></br>
                 {% endfor %}
             {% endif %}

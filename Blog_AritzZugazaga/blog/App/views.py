@@ -15,7 +15,10 @@ def post_detail(request, pk):
     return render(request, "post_detail.html", {'post':post})
 
 def forum(request):
-    return render(request, "forum.html")
+    forumComments = ForumComment.objects.all()
+    context = {'forum_comments' : forumComments}
+    
+    return render(request, "forum.html", context)
 
 class AddCommentView(CreateView):
     model = Comment
